@@ -1,0 +1,35 @@
+<h1>Create Campaign</h1>
+<div class = "col-xs-6">
+  <div class="row">
+    <%= form_for(@campaign) do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :name, "Campaign Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+        
+      <div class="form-group">
+        <%= f.label :start_at, "start_at" %>
+        <%= f.text_field :start_at, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :end_at, "end_at" %>
+        <%= f.text_field :end_at, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :limit_start, "limit_start" %>
+        <%= f.text_field :limit_start, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :movie_url, "movie_url" %>
+        <%= f.text_field :movie_url, class: "form-control" %>
+      </div>
+      
+      <%= f.submit "Create" , class: "btn btn-primary"%>
+      <%= link_to "Abort", campaigns_path, class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>

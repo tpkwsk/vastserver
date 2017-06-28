@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170626085444) do
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer  "limit_Start"
+    t.integer  "limit_start"
     t.string   "movie_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
