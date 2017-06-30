@@ -8,9 +8,24 @@
     <%= csrf_meta_tags %>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+    $(function () {
+      $('.date').datetimepicker({
+        locale: "ja", <%# 日本語化 %>
+        format: "YYYY-MM-DD hh:mm",  <%# テキストフィールドの表示形式 %>
+        dayViewHeaderFormat: "YYYY MMMM", <%# カレンダーのヘッダーの表示形式 %>
+        sideBySide: true, <%# カレンダーと時刻を横に並べる %>
+        stepping: 1 <%# 1分刻みで変更する %>
+      });
+    });
+    </script>
+    
   </head>
 
   <body>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626085444) do
+ActiveRecord::Schema.define(version: 20170628090323) do
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -18,8 +18,19 @@ ActiveRecord::Schema.define(version: 20170626085444) do
     t.datetime "end_at"
     t.integer  "limit_start"
     t.string   "movie_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "cuepoint1",   default: false, null: false
+    t.boolean  "cuepoint2",   default: false, null: false
+    t.boolean  "cuepoint3",   default: false, null: false
+    t.boolean  "cuepoint4",   default: false, null: false
+    t.boolean  "cuepoint5",   default: false, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

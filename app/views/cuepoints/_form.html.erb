@@ -1,0 +1,10 @@
+<%= form_for(cuepoint) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "Cuepoint Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  
+   <%= f.submit "Submit", class: "btn btn-primary"%>
+      
+<% end %>

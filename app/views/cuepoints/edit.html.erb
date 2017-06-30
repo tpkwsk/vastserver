@@ -1,0 +1,12 @@
+<h1>Edit Cuepoint No.<%= @cuepoint.id%></h1>
+
+<div class = "col-xs-6">
+  <div class="row">
+    
+    <%= render "form", cuepoint: @cuepoint %>
+    
+    <%= link_to "Cance", cuepoints_path, class: "btn btn-warning pull-right" %>
+    <%= link_to "Delete", @cuepoint, method: :delete, data: { confirm: "Delete This Cuepoint? \n This Operation Cannot be Undone" }, class: "btn btn-danger pull-right" %>
+    
+  </div>
+</div>

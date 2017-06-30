@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//日本語化、カレンダー入力
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/ja.js

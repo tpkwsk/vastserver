@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ 
+ * カレンダー入力
+ *= require bootstrap-datetimepicker
  */
+ 
+ 
+ 

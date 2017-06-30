@@ -1,5 +1,7 @@
 class CampaignsController < ApplicationController
   
+  before_action :set_campaign, only: [:edit, :update, :destroy]
+  
   def index
     @campaigns = Campaign.all
   end
@@ -23,11 +25,9 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find(params[:id])
   end
 
   def update
-    @campaign = Campaign.find(params[:id])
     if @campaign.update(campaign_params)
       flash[:success] = "Update Campaign"
       redirect_to campaigns_url
@@ -38,13 +38,17 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
     @campaign.destroy
     flash[:success] = 'Campaign is Deleted'
     redirect_to campaigns_url
   end
   
-  #strong parameter
+  private
+  
+  def set_campaign
+     @campaign = Campaign.find(params[:id])
+  end
+  
   def campaign_params
     params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url)
   end

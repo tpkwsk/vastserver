@@ -1,5 +1,7 @@
 <h1>Campaigns</h1>
 
+<%= link_to 'Create Campaign', new_campaign_path, class: "btn btn-primary"%>
+
 <% if @campaigns.any? %>
   <table class="table table-bordered table-condensed table-hover table-striped">
     
@@ -20,15 +22,14 @@
         <tr>
           <td><%= link_to campaign.id, edit_campaign_path(campaign) %></td>
           <td><%= campaign.name %></td>
-          <td><%= campaign.start_at %></td>
-          <td><%= campaign.end_at %></td>
+          <td><%= campaign.start_at.in_time_zone("Tokyo") %></td>
+          <td><%= campaign.end_at.in_time_zone("Tokyo") %></td>
           <td><%= campaign.limit_start %></td>
-          <td><%= campaign.created_at %></td>
-          <td><%= campaign.updated_at %></td>
+          <td><%= campaign.created_at.in_time_zone("Tokyo") %></td>
+          <td><%= campaign.updated_at.in_time_zone("Tokyo") %></td>
         </tr>
       <% end %>
     </tbody>
     
   </table>
 <% end %>
-<%= link_to 'Create Campaign', new_campaign_path %>
