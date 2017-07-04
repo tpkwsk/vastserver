@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   
   # cuepoints
   resources :cuepoints, only: [:index, :new, :create, :edit, :update, :destroy]
+  
+  
 end

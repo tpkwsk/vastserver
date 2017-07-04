@@ -29,6 +29,7 @@ class CampaignsController < ApplicationController
 
   def update
     if @campaign.update(campaign_params)
+      CampaignCuepoint.find_or_create_by(campaign_id: params[:id])
       flash[:success] = "Update Campaign"
       redirect_to campaigns_url
     else
@@ -50,7 +51,7 @@ class CampaignsController < ApplicationController
   end
   
   def campaign_params
-    params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url)
+    params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url, cue_ids: [])
   end
   
 end

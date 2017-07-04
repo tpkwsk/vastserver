@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628090323) do
+ActiveRecord::Schema.define(version: 20170703040316) do
+
+  create_table "campaign_cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "campaign_id"
+    t.integer  "cuepoint_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["campaign_id"], name: "index_campaign_cuepoints_on_campaign_id", using: :btree
+    t.index ["cuepoint_id"], name: "index_campaign_cuepoints_on_cuepoint_id", using: :btree
+  end
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -18,13 +27,8 @@ ActiveRecord::Schema.define(version: 20170628090323) do
     t.datetime "end_at"
     t.integer  "limit_start"
     t.string   "movie_url"
-    t.boolean  "cuepoint1",   default: false, null: false
-    t.boolean  "cuepoint2",   default: false, null: false
-    t.boolean  "cuepoint3",   default: false, null: false
-    t.boolean  "cuepoint4",   default: false, null: false
-    t.boolean  "cuepoint5",   default: false, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -33,4 +37,6 @@ ActiveRecord::Schema.define(version: 20170628090323) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "campaign_cuepoints", "campaigns"
+  add_foreign_key "campaign_cuepoints", "cuepoints"
 end

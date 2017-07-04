@@ -35,29 +35,11 @@
     <%= f.text_field :movie_url, class: "form-control" %>
   </div>
   
-  <div class="form-group">
-    <%= f.label :cuepoint1, "cuepoint1" %>
-    <%= f.check_box :cuepoint1 %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :cuepoint2, "cuepoint2" %>
-    <%= f.check_box :cuepoint2 %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :cuepoint3, "cuepoint3" %>
-    <%= f.check_box :cuepoint3 %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :cuepoint4, "cuepoint4" %>
-    <%= f.check_box :cuepoint4 %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :cuepoint5, "cuepoint5" %>
-    <%= f.check_box :cuepoint5 %>
+  <div class="check_box" >
+    <%= f.collection_check_boxes(:cue_ids, Cuepoint.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+      <br>
+    <% end %>
   </div>
   
    <%= f.submit "Submit", class: "btn btn-primary"%>
