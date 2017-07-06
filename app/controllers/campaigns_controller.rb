@@ -3,7 +3,17 @@ class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:edit, :update, :destroy]
   
   def index
-    @campaigns = Campaign.all
+    unless params[:cuepoint_id]
+      @campaigns = Campaign.all
+    else
+      @cuepoint = Cuepoint.find(params[:cuepoint_id])
+      @campaigns = Campaign.current_available(@cuepoint)
+      response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
+      response.headers['Access-Control-Allow-Methods'] = 'GET'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Credentials'] = 'true'
+      headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type'
+    end  
   end
 
   def show
@@ -53,5 +63,7 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url, cue_ids: [])
   end
+  
+  
   
 end

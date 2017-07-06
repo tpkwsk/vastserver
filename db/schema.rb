@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703040316) do
+ActiveRecord::Schema.define(version: 20170705081136) do
 
   create_table "campaign_cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "campaign_id"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170703040316) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "results", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "campaign_id"
+    t.integer  "cuepoint_id"
+    t.integer  "count_start"
+    t.integer  "count_end"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_foreign_key "campaign_cuepoints", "campaigns"

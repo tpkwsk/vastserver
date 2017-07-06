@@ -5,6 +5,10 @@
     
     <%= render "form", cuepoint: @cuepoint %>
     
+    <div class = "vast_url">
+      <%= vast_url(@cuepoint) %>
+    </div>
+    
     <%= link_to "Cance", cuepoints_path, class: "btn btn-warning pull-right" %>
     <%= link_to "Delete", @cuepoint, method: :delete, data: { confirm: "Delete This Cuepoint? \n This Operation Cannot be Undone" }, class: "btn btn-danger pull-right" %>
     
