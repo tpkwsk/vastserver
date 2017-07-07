@@ -13,9 +13,9 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: message-board_production
-  username: message-board
-  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+  database: vastserver-tp-production
+  username: vastserver-tp
+  password: <%= ENV['VASTSERVER-TP_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -47,8 +47,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: vastserver-tp_production
+#   username: vastserver-tp
+#   password: <%= ENV['VASTSERVER-TP_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: vastserver-tp_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: vastserver-tp-production
   username: vastserver-tp
   password: <%= ENV['VASTSERVER-TP_DATABASE_PASSWORD'] %>
