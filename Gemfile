@@ -55,3 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # bootstrap3-datetimepicker-rails
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+
+group :production do
+  gem 'pg'
+end
